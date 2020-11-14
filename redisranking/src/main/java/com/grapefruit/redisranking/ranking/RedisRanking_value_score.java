@@ -26,6 +26,7 @@ public class RedisRanking_value_score {
      */
     @GetMapping("/ranking")
     public Object ranking() {
+        System.out.println("==========80============");
         ZSetOperations<String,Integer> zSetOperations = redisTemplate.opsForZSet();
 
         //先清除缓存的key
@@ -59,5 +60,10 @@ public class RedisRanking_value_score {
             System.out.println(t.getValue() + "===>" + t.getScore());
         }
         return ranking2;
+    }
+
+    @GetMapping("/")
+    public String s(){
+        return "----80-----";
     }
 }
